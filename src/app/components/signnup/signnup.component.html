@@ -1,0 +1,145 @@
+
+
+<ion-content color="medium" class="ion-padding" > 
+
+  <ion-text color="primary" class="ion-text-center ">
+    <h1>GET ON BOARD</h1>
+  </ion-text>
+  <ion-text color="primary" class="ion-text-center ">
+    <h6>Set Your Journey By creating Your Profile</h6>
+  </ion-text>
+
+  <div class="ion-text-center">
+    <img width="100" src="assets/images/educate.png" alt="" srcset="">
+  </div>
+
+  <ion-grid >
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <form [formGroup]="signUpForm" #signUp>
+
+          <ion-list class="main_color">
+    
+            <!-- <div class=" m-2 mb-3">
+              <ion-item class="box">
+                <ion-icon slot="start" name="call"></ion-icon>
+                <ion-input required="true" type="tel" placeholder="Enter mobile number" formControlName="username" ></ion-input>
+              </ion-item>
+              <div  *ngFor="let validation of validationMessages.username">
+                <ion-note slot="error" color="danger"  *ngIf="signUpForm.get('username')?.hasError(validation.type)
+                && (signUpForm.get('username')?.dirty || signUpForm.get('username')?.touched)"
+                >{{ validation.message }} </ion-note>
+              </div>
+            </div> -->
+           
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="mail"></ion-icon>
+               <ion-input type="tel" placeholder="Enter email" formControlName="email" ></ion-input>
+             </ion-item>
+             <div *ngFor="let validation of validationMessages.email">
+              <ion-note slot="error" color="danger"  *ngIf="signUpForm.get('email')?.hasError(validation.type)
+              && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)"
+              >{{ validation.message }} </ion-note>
+             </div>
+            </div>
+           
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="person"></ion-icon>
+               <ion-input type="text" placeholder="Enter firstName" formControlName="firstName" required="true" ></ion-input>
+             </ion-item>
+             <div *ngFor="let validation of validationMessages.firstName">
+              <ion-note slot="error" color="danger"  *ngIf="signUpForm.get('firstName')?.hasError(validation.type)
+              && (signUpForm.get('firstName')?.dirty || signUpForm.get('firstName')?.touched)"
+              >{{ validation.message }} </ion-note>
+             </div>
+            </div>
+           
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="person"></ion-icon>
+               <ion-input type="text" placeholder="Enter lastName" formControlName="lastName" required="true" ></ion-input>
+             </ion-item>
+             <div *ngFor="let validation of validationMessages.lastName">
+              <ion-note slot="error" color="danger"  *ngIf="signUpForm.get('lastName')?.hasError(validation.type)
+              && (signUpForm.get('lastName')?.dirty || signUpForm.get('lastName')?.touched)"
+              >{{ validation.message }} </ion-note>
+             </div>
+            </div>
+           
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+               <ion-input [type]="passwordType" placeholder="Password" formControlName="password"></ion-input>
+               <ion-icon (click)="togglePassword()" slot="end" name="eye-outline"></ion-icon>
+             </ion-item>
+             <div *ngFor="let validation of validationMessages.password">
+              <ion-note slot="error" color="danger"  *ngIf="signUpForm.get('password')?.hasError(validation.type)
+              && (signUpForm.get('password')?.dirty || signUpForm.get('password')?.touched)"
+              >{{ validation.message }} </ion-note>
+             </div>
+            </div>
+           
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="lock-closed-outline" ></ion-icon>
+               <ion-input [type]="passwordType" placeholder="Confirm password" formControlName="passwordConfirm"></ion-input>
+               <ion-icon (click)="togglePassword()" slot="end" name="eye-outline"></ion-icon>
+             </ion-item>
+             <ion-note color="danger"  *ngIf=" (signUpForm.get('password')?.dirty || signUpForm.get('password')?.touched)
+             && signUpForm.get('password')?.value !== signUpForm.get('passwordConfirm')?.value"
+             >  password not match! </ion-note>
+          
+            </div>
+           
+           </ion-list>
+           <small>By proceeding you agree with the <ion-text  color="primary">Terms of use</ion-text> 
+            and <ion-text color="primary">Privacy policy</ion-text> </small>
+           <ion-button [disabled]=" loading || !signUpForm.valid  || signUpForm.get('password')?.value !==
+           signUpForm.get('passwordConfirm')?.value" color="primary" expand="block" (click)="submit()" >
+            Proceed
+           </ion-button>
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <!-- <ion-grid >
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <ion-item class="mt-4">
+          <ion-icon color="danger" slot="start" name="logo-google"></ion-icon>
+          <ion-text class="ml-2" color="danger">
+            <h6>Log in with Google</h6>
+          </ion-text>
+         
+        </ion-item>
+        <ion-item class="mt-4">
+          <ion-icon color="primary" slot="start" name="logo-facebook"></ion-icon>
+          <ion-text class="ml-2" color="primary">
+            <h6>Log in with Facebook</h6>
+          </ion-text>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+
+
+<ion-footer class="mt-3">
+  <ion-item color="primary" lines="none" class="ion-text-center">
+    <div class="mt-2" slot="start">Already have an account?</div>
+    <ion-text color="light" class="ml-3" [routerLink]="['/login']"  >
+      <h3 class="font-weigth-bold">Login</h3>
+    </ion-text>
+  </ion-item>
+  </ion-footer>
+
+
+
+
+</ion-content>

@@ -1,0 +1,91 @@
+<ion-header >
+  <ion-toolbar color="primary" mode="ios" >
+    <ion-item class="p-1">
+      <ion-title> Profile information</ion-title>
+      <ion-icon (click)="dismiss()" slot="end" name="close"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium">
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="10" offset="1">
+
+        <form  [formGroup]="myForm" #signUp>
+
+          <ion-list class="main_color mt-5">
+    
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="call"></ion-icon>
+               <ion-input type="text" type="tel" placeholder="Other Name" formControlName="other_name" ></ion-input>
+             </ion-item>
+     
+            </div>
+
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="mail"></ion-icon>
+               <ion-input type="text"  type="tel" placeholder="Enter country" formControlName="country" ></ion-input>
+             </ion-item>
+        
+            </div>
+
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="person"></ion-icon>
+               <ion-input type="text"   type="text" placeholder="Enter state" formControlName="state" ></ion-input>
+             </ion-item>
+            </div>
+
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="person"></ion-icon>
+               <ion-input type="text"   type="text" placeholder="Enter city" formControlName="city" ></ion-input>
+             </ion-item>
+            </div>
+
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="person"></ion-icon>
+               <ion-input type="text"   type="text" placeholder="Enter address" formControlName="address" ></ion-input>
+             </ion-item>
+            </div>
+           
+
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="person"></ion-icon>
+               <ion-input type="text"   type="date" placeholder="Date of birth" formControlName="birth_date" ></ion-input>
+             </ion-item>
+            </div>
+
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="person"></ion-icon>
+               <ion-input type="text"   type="text" placeholder="Enter address" formControlName="website" ></ion-input>
+             </ion-item>
+            </div>
+
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="person"></ion-icon>
+               <ion-input type="text"   type="text" placeholder="Enter twitter" formControlName="twitter" ></ion-input>
+             </ion-item>
+            </div>
+           
+           </ion-list>
+     
+           <ion-button [disabled]=" loading || !myForm.valid " color="primary" expand="block" (click)="submitForm()" >
+            Proceed
+           </ion-button>
+        </form>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

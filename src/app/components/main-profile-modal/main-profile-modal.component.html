@@ -1,0 +1,76 @@
+<ion-header >
+  <ion-toolbar color="primary" mode="ios" >
+    <ion-item class="p-1">
+      <ion-title>Main Profile</ion-title>
+      <ion-icon (click)="dismiss()" slot="end" name="close"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium">
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="10" offset="1">
+
+        <form  [formGroup]="myForm" #signUp>
+
+          <ion-list class="main_color mt-5">
+    
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="call"></ion-icon>
+               <ion-input readonly="true" type="text"  required="true" type="tel" placeholder="EnterUsername" formControlName="username" ></ion-input>
+             </ion-item>
+             <div *ngFor="let validation of validationMessages.username">
+              <ion-note slot="error" color="danger"  *ngIf="myForm.get('username')?.hasError(validation.type)
+              && (myForm.get('username')?.dirty || myForm.get('username')?.touched)"
+              >{{ validation.message }} </ion-note>
+             </div>
+            </div>
+
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="mail"></ion-icon>
+               <ion-input type="email"  type="tel" placeholder="Enter email" formControlName="email" ></ion-input>
+             </ion-item>
+             <div *ngFor="let validation of validationMessages.email">
+              <ion-note slot="error" color="danger"  *ngIf="myForm.get('email')?.hasError(validation.type)
+              && (myForm.get('email')?.dirty || myForm.get('email')?.touched)"
+              >{{ validation.message }} </ion-note>
+             </div>
+            </div>
+
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="person"></ion-icon>
+               <ion-input type="text"   type="tel" placeholder="Enter firstName" formControlName="first_name" ></ion-input>
+             </ion-item>
+            </div>
+
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="person"></ion-icon>
+               <ion-input type="text"   type="tel" placeholder="Enter lastName" formControlName="last_name" ></ion-input>
+             </ion-item>
+            </div>
+           
+           
+     
+    
+           
+           </ion-list>
+     
+           <ion-button [disabled]=" loading || !myForm.valid " color="primary" expand="block" (click)="submitForm()" >
+            Proceed
+           </ion-button>
+        </form>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

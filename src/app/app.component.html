@@ -1,0 +1,48 @@
+<ion-app [ngSwitch]="authService.isLogedIn()">
+
+  <div *ngSwitchCase="true">
+ 
+      <ion-menu  contentId="main-content" type="overlay" side="end">
+    <ion-content>
+ <ion-item>
+  <ion-icon slot="start" name="person"></ion-icon>
+  <div class="font-weight-bold">{{person?.email}} </div>
+ </ion-item>
+ <ion-item>
+  <div class="ml-4">{{person?.first_name}} {{person?.last_name}} </div>
+ </ion-item>
+
+      <ion-list mode="ios" id="inbox-list">
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+          <ion-item color="light" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+            routerLinkActive="selected">
+            <ion-icon size="large" color="primary" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+            <ion-label class="pl-3 font-weight-bold">{{ p.title }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false" >
+          <ion-item color="light" routerDirection="root" (click)="logOut()" detail="false"
+            routerLinkActive="selected">
+            <ion-icon size="large" color="primary" slot="start" [ios]=" 'power' + '-outline'" [md]=" 'power' + '-sharp'"></ion-icon>
+            <ion-label class="pl-3 font-weight-bold">Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+
+    
+    </ion-content>
+
+  </ion-menu >
+  <!-- spinner -->
+  <!-- <div *ngIf="showLoader" id="preloader">
+    <i class="circle-preloader"></i>
+  </div> -->
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+
+  </div>
+
+
+
+</ion-app>
+

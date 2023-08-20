@@ -1,0 +1,108 @@
+
+
+<ion-content color="medium" class=" ion-padding" > 
+
+  <ion-text color="primary" class="ion-text-center ">
+    <h1>GET ON BOARD</h1>
+  </ion-text>
+  <ion-text color="primary" class="ion-text-center ">
+    <h6>Login Your credentials to get Started</h6>
+  </ion-text>
+
+  <ion-grid >
+    <ion-row>
+      <ion-col size="10" offset="1">
+
+        <!-- <ion-segment color="primary" (ionChange)="onSegMentChange($event)" value="phone">
+          <ion-segment-button value="phone">
+            <ion-label>Phone</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="email">
+            <ion-label>email</ion-label>
+          </ion-segment-button>
+        </ion-segment> -->
+        
+        <div class="ion-text-center">
+          <img width="200" src="assets/images/educate.png" alt="" srcset="">
+        </div>
+
+
+
+
+        <form *ngIf="segment ==='email'" [formGroup]="emailForm" #signUp>
+
+          <ion-list class="main_color mt-3">
+    
+            <div class=" m-2 mb-3">
+             <ion-item color="light" class="box">
+               <ion-icon slot="start" name="mail"></ion-icon>
+               <ion-input type="email"  required="true" placeholder="Enter email" formControlName="email" ></ion-input>
+             </ion-item>
+             <div *ngFor="let validation of validationMessages.email">
+              <ion-note slot="error" color="danger"  *ngIf="emailForm.get('email')?.hasError(validation.type)
+              && (emailForm.get('email')?.dirty || emailForm.get('email')?.touched)"
+              >{{ validation.message }} </ion-note>
+             </div>
+            </div>
+           
+           
+            <div class=" m-2 mb-3">
+             <ion-item  class="box">
+               <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+               <ion-input [type]="passwordType" placeholder="Password" formControlName="password"></ion-input>
+               <ion-icon (click)="togglePassword()" slot="end" name="eye-outline"></ion-icon>
+             </ion-item>
+             <div *ngFor="let validation of validationMessages.password">
+              <ion-note slot="error" color="danger"  *ngIf="emailForm.get('password')?.hasError(validation.type)
+              && (emailForm.get('password')?.dirty || emailForm.get('password')?.touched)"
+              >{{ validation.message }} </ion-note>
+             </div>
+            </div>
+    
+           
+           </ion-list>
+           <small>By proceeding you agree with the <ion-text  color="primary">Terms of use</ion-text> 
+            and <ion-text color="primary">Privacy policy</ion-text> </small>
+           <ion-button [disabled]=" loading || !emailForm.valid " color="primary" expand="block" (click)="loginEmail()" >
+            Proceed
+           </ion-button>
+        </form>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <!-- <ion-grid >
+    <ion-row>
+      <ion-col size="8" offset="2">
+        <ion-item class="mt-4">
+          <ion-icon color="danger" slot="start" name="logo-google"></ion-icon>
+          <ion-text class="ml-2" color="danger">
+            <h6>Log in with Google</h6>
+          </ion-text>
+         
+        </ion-item>
+        <ion-item class="mt-4">
+          <ion-icon color="primary" slot="start" name="logo-facebook"></ion-icon>
+          <ion-text class="ml-2" color="primary">
+            <h6>Log in with Facebook</h6>
+          </ion-text>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+
+
+<ion-footer class="mt-2">
+<ion-item color="primary" lines="none" class="ion-text-center">
+  <div class="mt-2" slot="start">Don't have account yet? </div>
+  <ion-text color="light" class="ml-3" [routerLink]="['/signup']"  >
+    <h3 class="font-weigth-bold">SIGN UP</h3>
+  </ion-text>
+</ion-item>
+</ion-footer>
+
+
+</ion-content>

@@ -1,0 +1,115 @@
+
+
+<ion-header mode="ios" color="medium">
+  <ion-toolbar mode="ios" >
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="medium">
+
+<ion-row class="mt-3">
+  <ion-col size="12" offset="5">
+    <ion-avatar class="ion-text-center">
+      <img src="https://gravatar.com/avatar">
+    </ion-avatar>
+  </ion-col>
+
+</ion-row>
+
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="10" offset="1">
+
+      <ion-list-header>
+ 
+        <ion-text color="primary">
+          <h5 class="ml-2"> {{authPerson?.first_name}}  {{authPerson?.last_name}}  </h5>
+        </ion-text>
+        <!-- <ion-button color="primary"> <ion-icon   name="create-outline"></ion-icon> </ion-button> -->
+      </ion-list-header>
+    
+      <ion-list>
+        <ion-list-header>
+          <ion-label class="ml-2">Main</ion-label>
+          <ion-button (click)="mainProfileModal()" >Edit</ion-button>
+        </ion-list-header>
+        <ion-item color="primary" lines="none">
+          <ion-label>Mobile</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authPerson?.username}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>Email</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authPerson?.email}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>FirstName</ion-label>
+          <div slot="end" class="font-weight-bold">{{authPerson?.first_name}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>LastName</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authPerson?.last_name}} </div>
+        </ion-item>
+    
+   
+      </ion-list>
+    
+      <ion-list class="mt-2">
+        <ion-list-header>
+          <ion-label  class="ml-2">Profile</ion-label>
+          <ion-button (click)="modifyOtherProfileModal()">Edit</ion-button>
+        </ion-list-header>
+        <ion-item color="primary" lines="none">
+          <ion-label>Other Name</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authProfile?.other_name}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>Country</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authProfile?.country}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>Region/state</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authProfile?.state}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>City</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authProfile?.city}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>Address</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authProfile?.address}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>Website</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authProfile?.website}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>Facebook</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authProfile?.facebook}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>Twitter</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authProfile?.twitter}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>instagram</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authProfile?.instagram}} </div>
+        </ion-item>
+        <ion-item color="primary" lines="none">
+          <ion-label>Birth Date</ion-label>
+          <div slot="end"  class="font-weight-bold">{{authProfile?.birth_date}} </div>
+        </ion-item>
+      </ion-list>
+    
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
+ 
+
+
+</ion-content>
